@@ -6,6 +6,7 @@ define([
     /**
      * Класс позволяющий расчитать пересечие:
      * круга и круга
+     * @exports Circle
      */
     var Circle = f.CreateClass("Circle");
 
