@@ -8,7 +8,11 @@ define([
     /**
      * Базовый класс игрового объекта
      */
-    var GameObject = f.CreateClass("GameObject");
+    var GameObject = f.CreateClass("GameObject", {
+        // ширина и высота для спрайтов
+        width: 10,
+        height: 10
+    });
 
     /**
      * Инициализация объекта, вызванная при создании объекта
@@ -47,6 +51,17 @@ define([
 
     };
 
+    GameObject.prototype.drawVector = function(ctx) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.lineWith = 3;
+        ctx.strokeStyle = "yellow";
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + this._vector.x, this.y + this._vector.y);
+        ctx.stroke();
+        ctx.restore();
+    };
+
     /**
      * управляющий объектом метод, вызывается на кажом кадре игры
      * @param  {number} timeCoeff скорость игры
@@ -54,6 +69,8 @@ define([
     GameObject.prototype.frame = function(timeCoeff) {
         this.vectorManager.frame();
         var vector = this.vectorManager.getSumm();
+        this._vector = vector; // кэш
+
         this.x += vector.x;
         this.y += vector.y;
     };

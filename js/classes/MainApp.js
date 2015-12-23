@@ -8,8 +8,9 @@ define([
 	"classes/Vector/FadeVector",
 	"classes/Hitbox/Hitbox",
 	"classes/Hitbox/Circle",
-	"classes/Hitbox/Line"
-], function(f, Events, $, GameObject, Vector, GravityVector, FadeVector, Hitbox, Circle, Line) {
+	"classes/Hitbox/Line",
+	"classes/Robot"
+], function(f, Events, $, GameObject, Vector, GravityVector, FadeVector, Hitbox, Circle, Line, Robot) {
 	"use strict";
 
 	var MainApp = f.CreateClass("MainApp", {}, Events);
@@ -31,14 +32,21 @@ define([
 
 		this.red = new GameObject();
 		this.red.color = "red";
+		this.red.x = 100;
 		this.redVector = new Vector();
 		this.red.vectorManager.add(this.redVector);
+		//this.red.vectorManager.add(new GravityVector());
 
 		this.blue = new GameObject();
 		this.blue.color = "blue";
 
 		this.blue.x = 100;
 		this.blue.y = 100;
+
+		this.Robot = Robot;
+		this.robot = new Robot();
+		this.robot.x = 300;
+		this.robot.y = 300;
 
 		this.step = 4;
 
@@ -156,8 +164,10 @@ define([
 		this.red.frame(timeCoeff);
 		this.blue.frame(timeCoeff);
 
+		this.robot.draw(this.ctx);
 		this.red.drawHitbox(this.ctx);
 		this.blue.drawHitbox(this.ctx);
+		this.red.drawVector(this.ctx);
 	};
 
 	MainApp.prototype.onResize = function() {
