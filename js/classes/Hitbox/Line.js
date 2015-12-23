@@ -10,12 +10,12 @@ define([
      * Линия строится по двум точкам методами
      * line.setStartPoint({x: number, y: number});
      * line.setEndPoint({x: number, y: number});
+     * @exports Line
      */
     var Line = f.CreateClass("Line");
 
     /**
      * Задаем координаты по умолчанию в центре объекта
-     * @return {[type]} [description]
      */
     Line.prototype.init = function() {
         this.type = "Line";
