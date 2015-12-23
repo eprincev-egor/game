@@ -7,6 +7,8 @@ define([
     /**
      * Вектор гравитации объектов, базовое движение всех объектов вниз
      * на каждом кадре вектор возрастает
+     * @constructs GravityVector
+     * @extends Vector
      */
     var GravityVector = Vector.extend("GravityVector");
 

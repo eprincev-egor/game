@@ -5,14 +5,26 @@ define([
 
     /**
      * Вектор указаывающий направление и скорость для передвижения объектов
+     * @constructs Vector
+     * @alias Game.Vector
+     * @example
+     * // создаем вектор, который будет направлять игровой объект
+     * // на 10px вправо и 12px вниз за каждый кадр игры
+     * var vector = new Vector({
+     * 		x: 10,
+     * 		y: 12
+     *   });
+     *
+     * // создаем копию вектора
+     * var cloneVector = new Vector(vector);
      */
     var Vector = f.CreateClass("Vector");
 
     /**
      * Базовая инициализация вектора
-     * @param  {object} vector объект вида {x: number, y: number}, где
-     * vector.x - кол-во пикселей по оси X, на которое будет смещен объект
-     * vector.y - кол-во пикселей по оси Y, на которое будет смещен объект
+     * @param  {Object | Vector} vector объект вида {x: number, y: number}, где <br/>
+     * vector.x - кол-во пикселей по оси X, на которое будет смещен объект  <br/>
+     * vector.y - кол-во пикселей по оси Y, на которое будет смещен объект  <br/>
      */
     Vector.prototype.init = function(vector) {
         if ( vector ) {
@@ -42,9 +54,9 @@ define([
     };
 
     /**
-     * Определяем длину вектора с помощью теоремы Пифагора
-     * где в качестве катетов будут this.x и this.y,
-     * а гипотенуза это искомая длина
+     * Определяем длину вектора с помощью теоремы Пифагора  <br/>
+     * где в качестве катетов будут this.x и this.y,  <br/>
+     * а гипотенуза это искомая длина  <br/>
      * @return {number} длина в px
      */
     Vector.prototype.getLength = function() {

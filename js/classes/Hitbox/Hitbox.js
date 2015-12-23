@@ -7,13 +7,17 @@ define([
      * Пересечение двух хитбоксов есть соприкасновние.
      * Если необходимо проверить не столкнулись ли 2 объекта,
      * то необходимо проверить пересечение их хитбоксов
-     * @exports Hitbox
+     * @constructs Hitbox
      */
-    var Hitbox = f.CreateClass("Hitbox");
+    var Hitbox = f.CreateClass("Hitbox", {});
 
     /**
      * хитбокс будет привязан к объекту,
      * поэтому он не должен иметь свои координаты
+     * @example
+     * var hitbox = new Hitbox();
+     * hitbox.setGameObject(hero);
+     * hitbox.addFigure(circle);
      */
     Hitbox.prototype.init = function() {
          // определяем коллекции фигур,

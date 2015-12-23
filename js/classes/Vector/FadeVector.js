@@ -10,6 +10,8 @@ define([
      * fadeVector.setBaseVector(vector);
      * fadeVector.setManager(vectorManager);
      * fadeVector.setFrameCount(number);
+     * @constructs FadeVector
+     * @extends Vector
      */
     var FadeVector = Vector.extend("FadeVector");
 

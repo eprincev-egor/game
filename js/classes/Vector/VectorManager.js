@@ -6,6 +6,7 @@ define([
 
     /**
      * Менеджер векторов, добавление, сложение и удаление векторов
+     * @constructs VectorManager 
      */
     var VectorManager = f.CreateClass("VectorManager");
 

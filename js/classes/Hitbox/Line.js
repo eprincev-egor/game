@@ -10,7 +10,7 @@ define([
      * Линия строится по двум точкам методами
      * line.setStartPoint({x: number, y: number});
      * line.setEndPoint({x: number, y: number});
-     * @exports Line
+     * @constructs Line
      */
     var Line = f.CreateClass("Line");
 

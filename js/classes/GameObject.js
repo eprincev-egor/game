@@ -7,6 +7,7 @@ define([
 
     /**
      * Базовый класс игрового объекта
+     * @constructs GameObject
      */
     var GameObject = f.CreateClass("GameObject", {
         // ширина и высота для спрайтов
@@ -51,6 +52,11 @@ define([
 
     };
 
+    /**
+     * Рисуем итоговый вектор объекта
+     * @param  {CanvasRenderingContext2D} ctx холст,
+     * на котором будет отрисована линия из центра объекта
+     */
     GameObject.prototype.drawVector = function(ctx) {
         ctx.save();
         ctx.beginPath();
